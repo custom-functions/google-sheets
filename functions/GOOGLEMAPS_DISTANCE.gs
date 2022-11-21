@@ -1,9 +1,8 @@
+// @author Amit Agarwal
 /**
  * Calculate the distance between two locations on Google Maps.
  *
  * =GOOGLEMAPS_DISTANCE("NY 10005", "Hoboken NJ", "walking")
- *
- * @author Amit Agarwal
  *
  * @param {String} origin The address of starting point
  * @param {String} destination The address of destination

@@ -1,7 +1,6 @@
+// @author KEINOS
 /**
  * Generates an MD5 hash of the input.
- *
- * @author KEINOS
  *
  * @param {string} input The value to be hashed.
  * @return {string} The MD5 hash of the input.
