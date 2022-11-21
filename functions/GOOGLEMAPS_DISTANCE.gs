@@ -1,4 +1,4 @@
-// @author Amit Agarwal
+// @author Amit Agarwal https://www.labnol.org/google-maps-sheets-200817
 /**
  * Calculate the distance between two locations on Google Maps.
  *

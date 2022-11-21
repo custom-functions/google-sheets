@@ -1,4 +1,4 @@
-// @author KEINOS
+// @author KEINOS https://gist.github.com/KEINOS/78cc23f37e55e848905fc4224483763d
 /**
  * Generates an MD5 hash of the input.
  *
