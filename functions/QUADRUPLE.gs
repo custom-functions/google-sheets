@@ -1,7 +1,7 @@
 /**
  * Multiplies the input value by 4.
  *
- * @param {number|Array<Array<number>>} input The value or range of cells to multiply.
+ * @param {number} input The value or range of cells to multiply.
  * @return The input multiplied by 4.
  * @customfunction
  */
