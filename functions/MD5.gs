@@ -4,7 +4,6 @@
  * @param {string} input The value to be hashed.
  * @return {string} The MD5 hash of the input.
  * @customfunction
- *
  */
 function MD5(input) {
   return Array.isArray(input) ?
