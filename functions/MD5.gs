@@ -7,11 +7,11 @@
  */
 function MD5(input) {
   return Array.isArray(input) ?
-    input.map(row => row.map(cell => helper(cell))) :
-    helper(input);
+    input.map(row => row.map(cell => helper_(cell))) :
+    helper_(input);
 }
 
-const helper = (input) => {
+const helper_ = (input) => {
   let output = new String();
   Utilities.computeDigest(
     Utilities.DigestAlgorithm.MD5, input)
