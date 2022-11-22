@@ -1,4 +1,5 @@
 /**
+ * Multiplies the input value by 2.
  *
  * @param {number} input The value or range of cells to multiply.
  * @return {number} The input multiplied by 2.
