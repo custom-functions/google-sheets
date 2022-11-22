@@ -3,7 +3,7 @@
  * Returns data about an available .com domain.
  *
  * @param {string} name The name of the domain.
- * @return Registrar name, registration & expiration date of a .com domain.
+ * @return {Array} Registrar name, registration & expiration date of a .com domain.
  * @customfunction
  */
 function DOT_COM_DATA(name) {
