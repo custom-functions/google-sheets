@@ -2,6 +2,8 @@
 
 Use [this Google Workspace Add-on](https://workspace.google.com/marketplace/app/custom_functions/3868008326) in Google Sheets to instantly import custom functions, built using Apps Script.
 
+![custom-functions-cover](https://user-images.githubusercontent.com/37455462/203621415-22d918d8-d247-4fb2-9dcd-ea771552b6c2.jpeg)
+
 # Table of contents
 - [Installation](#installation)
     - [Usage](#usage)
@@ -64,7 +66,7 @@ function DOUBLE(input) {
 }
 ```
 
-#### Must have —
+#### Must have
 
 1. JSDoc styled comments
 2. The description of the function needs to go all the way on the top (within JSDoc)
@@ -74,7 +76,7 @@ function DOUBLE(input) {
 4. JSDoc will need to end with the `@customfunction` tag
 5. Ensure to rigorously test the function in your own Apps Script project
 
-#### Good to have —
+#### Good to have
 
 1. Have the `@author` tag added at the very first line of the file (if any)
 2. While the function can return a single value, where possible, it would be good to be able to accomodate `Array` input and return too
