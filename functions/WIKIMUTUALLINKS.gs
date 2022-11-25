@@ -30,7 +30,7 @@ function WIKIINBOUNDLINKS_(article, opt_namespaces) {
       language = article.split(/:(.+)?/)[0];
       title = article.split(/:(.+)?/)[1];
     } else {
-      language = DEFAULT_LANGUAGE;
+      language = 'en';
       title = article;
     }
     if (!title) {
@@ -44,7 +44,11 @@ function WIKIINBOUNDLINKS_(article, opt_namespaces) {
             encodeURIComponent(opt_namespaces) : '0') +
         '&format=xml' +
         '&bltitle=' + encodeURIComponent(title.replace(/\s/g, '_'));
-    var xml = UrlFetchApp.fetch(url, HEADERS).getContentText();
+    var xml = UrlFetchApp.fetch(url, {
+      headers: {
+        'X-User-Agent': 'Wikipedia Tools for Google Spreadsheets'
+      }
+    }).getContentText();
     var document = XmlService.parse(xml);
     var entries = document.getRootElement().getChild('query')
         .getChild('backlinks').getChildren('bl');
@@ -71,7 +75,7 @@ function WIKIOUTBOUNDLINKS_(article, opt_namespaces) {
       language = article.split(/:(.+)?/)[0];
       title = article.split(/:(.+)?/)[1];
     } else {
-      language = DEFAULT_LANGUAGE;
+      language = 'en';
       title = article;
     }
     if (!title) {
@@ -85,7 +89,11 @@ function WIKIOUTBOUNDLINKS_(article, opt_namespaces) {
         '&format=xml' +
         '&pllimit=max' +
         '&titles=' + encodeURIComponent(title.replace(/\s/g, '_'));
-    var xml = UrlFetchApp.fetch(url, HEADERS).getContentText();
+    var xml = UrlFetchApp.fetch(url, {
+      headers: {
+        'X-User-Agent': 'Wikipedia Tools for Google Spreadsheets'
+      }
+    }).getContentText();
     var document = XmlService.parse(xml);
     var entries = document.getRootElement().getChild('query').getChild('pages')
         .getChild('page').getChild('links').getChildren('pl');
