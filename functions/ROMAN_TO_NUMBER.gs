@@ -1,3 +1,4 @@
+// @author Nwachukwu Ujubuonu https://github.com/Hemephelus/google-sheets-custom-function
 /**
  * Returns the values of the Roman Text as an Integer.
  * 
