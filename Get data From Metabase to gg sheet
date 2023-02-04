@@ -1,0 +1,54 @@
+
+var  baseUrl = "https://metabase.prod.rootopia.vn/api" 
+function api_metabase ( cardid )  {
+  var  baseUrl = "https://metabase.prod.rootopia.vn/api"
+  var url = baseUrl.concat("/card/", cardid, "/query");
+    var options = {
+      "method": "post",
+      "contentType": "application/json",
+      "headers": { "X-Metabase-Session": 'ef0b584a-3e9f-43bd-bd7f-106f90d4df33'  },
+      "muteHttpExceptions": true
+    };
+    var resp = UrlFetchApp.fetch(url, options);
+    // Logger.log ( resp )
+    resp = JSON.parse(resp.getContentText());
+    var columns = [];
+    resp.data.cols.forEach(function (val) {
+      columns.push(val.display_name);
+    });
+    var rows = resp.data.rows;
+    rows.unshift(columns);
+    return rows;
+  }
+
+
+
+   function  getToken () {
+    var url = baseUrl.concat("/session");
+    var payload = {
+      "username": 1 ,
+      "password": 2 
+    };
+    var options = {
+      "method": "post",
+      "contentType": "application/json",
+      "payload": JSON.stringify(payload)
+    };
+    var resp=UrlFetchApp.fetch(url, options);
+    // return JSON.parse(resp.getContentText()).id;
+    Logger.log ( JSON.parse(resp.getContentText()).id ) 
+  };
+
+/**
+ * Trả data từ 1 card trên metabase  
+ * @cardid {number}.
+ * @sheetName Sheet lưu data.
+ * @customfunction
+*/
+
+  function getdata ( cardid ,  sheetName ) {
+    var result =  api_metabase(cardid ) 
+    Logger.log ( result )
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    return result;
+  }
