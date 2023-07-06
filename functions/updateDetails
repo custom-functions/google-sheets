@@ -1,0 +1,16 @@
+function updateDetails(e) {
+    // Prevent errors if no object is passed.
+    if (!e) return;
+    // Get the active sheet.
+    e.source.getActiveSheet()
+        // Set the cell you want to update with the date.
+        .getRange('M2')
+        // Update the date.
+        .setValue(new Date());
+    // Get the active sheet.
+    e.source.getActiveSheet()
+        // Set the cell you want to update with the user.
+        .getRange('M3')
+        // Update the user (only email is available, and only if security settings allow).
+        .setValue(e.user.getEmail() );
+}
