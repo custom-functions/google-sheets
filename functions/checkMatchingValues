@@ -1,0 +1,22 @@
+// @a1ex.garofalo WorkspaceDevs https://developers.google.com/apps-script/guides/sheets/functions#optimization
+/**
+ * Checks if values in one column on a certain sheet match values in another column in a different sheet
+ */
+function checkMatchingValues(sourceSheetName, sourceColumn, targetSheetName, targetColumn) {
+  var sourceSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sourceSheetName);
+  var targetSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(targetSheetName);
+
+  var sourceValues = sourceSheet.getRange(sourceColumn).getValues();
+  var targetValues = targetSheet.getRange(targetColumn).getValues();
+
+  var sourceValuesFlat = sourceValues.flat().filter(String);
+  var targetValuesFlat = targetValues.flat().filter(String);
+
+  for (var i = 0; i < sourceValuesFlat.length; i++) {
+    if (targetValuesFlat.indexOf(sourceValuesFlat[i]) === -1) {
+      return false;
+    }
+  }
+
+  return true;
+}
